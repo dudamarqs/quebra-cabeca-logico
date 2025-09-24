@@ -145,30 +145,30 @@ modelo(Sol) :-
       (Mes5 = setembro, Jogo4 = cubo_vermelho)).
 
 
-      imprime_tabela(Sol) :-
-        solucao_para_listas(Sol, Mochilas, Nomes, Meses, Jogos, Materias, Sucos), % recebe a solução final e extrai as colunas (predicado no final)
+imprime_tabela(Sol) :-
+  solucao_para_listas(Sol, Mochilas, Nomes, Meses, Jogos, Materias, Sucos), % recebe a solução final e extrai as colunas (predicado no final)
 
-        format('+---------------+--------------+--------------+--------------+--------------+--------------+~n'),
-        format('| Categoria     | Menino#1     | Menino#2     | Menino#3     | Menino#4     | Menino#5     |~n'),
-        format('+---------------+--------------+--------------+--------------+--------------+--------------+~n'),
+  format('+---------------+--------------+--------------+--------------+--------------+--------------+~n'),
+  format('| Categoria     | Menino#1     | Menino#2     | Menino#3     | Menino#4     | Menino#5     |~n'),
+  format('+---------------+--------------+--------------+--------------+--------------+--------------+~n'),
         
-        print_row('Mochila', Mochilas), % print_row não trbalha com lista de tuplas, 
-        print_row('Nome', Nomes),
-        print_row('Mes', Meses),
-        print_row('Jogo', Jogos),
-        print_row('Materia', Materias),
-        print_row('Suco', Sucos),
+  print_row('Mochila', Mochilas), % print_row não trbalha com lista de tuplas, 
+  print_row('Nome', Nomes),
+  print_row('Mes', Meses),
+  print_row('Jogo', Jogos),
+  print_row('Materia', Materias),
+  print_row('Suco', Sucos),
       
       
-      print_row(Label, Values) :-
-        format('| ~w~t~15  ||', [Label]),
-        print_values(Values),
-        nl.
+  print_row(Label, Values) :-
+    format('| ~w~t~15  ||', [Label]),
+    print_values(Values),
+    nl.
       
-      print_values([]).
-      print_values([V|Vs]) :-
-        format(' ~w~t~12||', [V]),
-        print_values(Vs).      
+  print_values([]).
+  print_values([V|Vs]) :-
+    format(' ~w~t~12||', [V]),
+    print_values(Vs).      
       
 
 % extrai as listas separadas a partir da solução (ultima)
